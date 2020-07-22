@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('auth.register');
+// });
 // Route::get('/home', 'HomeController@index')->name('home');
 
 // Auth::routes();
@@ -24,8 +24,8 @@ Route::get('/', function () {
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/', 'Auth\RegisterController@register');
+Route::post('/', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
 
