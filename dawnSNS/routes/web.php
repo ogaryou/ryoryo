@@ -23,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
+Route::get('/top', 'Auth\LoginController@index');
 
 Route::get('/', 'Auth\RegisterController@register');
 Route::post('/', 'Auth\RegisterController@register');
+// Route::post('/', 'Auth\RegisterController@validator');
 
 Route::get('/added', 'Auth\RegisterController@added');
 
@@ -33,6 +35,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
+Route::get('/logout','Auth\LoginController@logout');
 Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@index');
