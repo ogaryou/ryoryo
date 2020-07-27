@@ -12,6 +12,7 @@ class PostsController extends Controller
         // $username = \DB::table('users');
         return view('layouts.login',['username' => $username]);
         return view('posts.index',compact('username'));
+        // return view('auth.added',['username' => $username],compact('username'));
 
     }
 

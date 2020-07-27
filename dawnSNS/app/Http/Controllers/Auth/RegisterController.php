@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -89,6 +91,7 @@ class RegisterController extends Controller
     $data = $request->input();
 
     $this->create($data);
+
     return redirect('added');
     }
     
@@ -97,6 +100,8 @@ class RegisterController extends Controller
      }
 
     public function added(){
-        return view('auth.added');
+        $username = \DB::table('users')->latest()->first();
+        return view('auth.added',['username'=>$username]);
+        
     }
 }
