@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/top';
 
     /**
      * Create a new controller instance.
@@ -49,9 +51,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255',
-            'mail' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:4|confirmed',
+            'username' =>  'required|string|max:4',
+            'mail' => 'required|string|email|max12|min4|exists:users,mail,deleted_at,NULL',
+            'password' =>  'required|string|max12|confirmed',
         ]);
     }
 
@@ -75,17 +77,31 @@ class RegisterController extends Controller
     //     return view("auth.register");
     // }
 
+        
     public function register(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->input();
+      
+        // $request->validate([
+        //     'username' => 'required|string|max:4',
+        //     'mail' => 'required|string|email|max:12|min:4|exists:users,mail,deleted_at,NULL',
+        //     'password' => 'required|string|max:12|confirmed',
+        // ]);
+    
+    if($request->isMethod('post')){
 
-            $this->create($data);
-            return redirect('added');
-        }
-        return view('auth.register');
+    $data = $request->input();
+
+    $this->create($data);
+
+    return redirect('added');
     }
+    
+    return view('auth.register');
+
+     }
 
     public function added(){
-        return view('auth.added');
+        $username = \DB::table('users')->latest()->first();
+        return view('auth.added',['username'=>$username]);
+        
     }
 }
