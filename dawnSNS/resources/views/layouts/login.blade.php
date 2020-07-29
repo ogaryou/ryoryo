@@ -18,6 +18,7 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+   
 </head>
 <body>
     <header>
@@ -66,7 +67,7 @@
     </div>
     <footer>
     </footer>
-    <script src="{{asset('js/app.js')}}"></script>
+     <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('js/top.js')}}"></script>
 </body>
 </html>
