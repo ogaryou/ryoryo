@@ -19,7 +19,7 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
-   
+    <script src="https://kit.fontawesome.com/ed36208e44.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -63,7 +63,7 @@
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
