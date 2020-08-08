@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Support\Facades\Auth;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,4 +27,27 @@ class User extends Authenticatable
         'password', 
     ];
     protected $rememberTokenName = false;
+
+    public function follows()
+    {
+        return $this->belongsToMany('App\Follow', 'follow_user','id', 'follow_id' );
+    }
+
+    public function follow($user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+    public function unfollow($user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+    public function isFollowing($user_id) 
+    {
+        return $this->follows()->where('follow_id', $user_id)->exists();
+    }
+    public function isFollowed($user_id)
+    {
+        return $this->followers()->where('follower_id', $user_id);
+    }
 }
+

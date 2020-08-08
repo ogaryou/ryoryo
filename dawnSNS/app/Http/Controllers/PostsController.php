@@ -8,7 +8,7 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        $username = \Auth::user();
+        $username = Auth::user();
         // $username = \DB::table('users');
         return view('layouts.login',['username' => $username]);
         return view('posts.index',compact('username'));

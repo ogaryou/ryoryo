@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Follow extends Model
 {
-    public function user(){
-        return $this->belongsTo(\App\User::class, 'user_id', 'id');
-    }
+    protected $fillable =['follow_id','follwer_id'];
     //
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'follow_user','follow_id', 'id' );
+    }
 }

@@ -18,6 +18,18 @@
       <tr>
         <td><img src="{{ asset('images/'. $user->images)}}"/></td>
         <td>{{ $user->username}}</td>  
+        @if(auth()->user()->isFollowing($user->id))
+          {!!Form::open(['action' => 'UsersController@unfollow',['id' => $user->id], 'method' => 'post'])!!}
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <td>{{Form::button('フォロー解除', ['class' => 'btn'])}}</td>
+          {!! Form::close() !!}
+        @else
+          {!!Form::open(['action'=> 'UsersController@follow',['id' => $user->id], 'method' => 'post'])!!}
+          {{ csrf_field() }}
+          <td>{Form::button('フォローする', ['class' => 'btn-primary'])}</td>
+          {!! Form::close() !!}
+        @endif  
       </tr>
       @endforeach
     </table>
