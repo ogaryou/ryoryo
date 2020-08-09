@@ -43,6 +43,9 @@ Route::get('/search','UsersController@search')->name('search');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
-Route::post('users/follow', 'UsersController@follow')->name('follow');
-Route::delete('users/unfollow', 'UsersController@unfollow')->name('unfollow');
-
+// Route::post('users/follow', 'UsersController@followings')->name('followings');
+// Route::delete('users/unfollow', 'UsersController@unfollowers')->name('unfollowers');
+Route::group(['prefix' => 'users/{id}'], function () {
+  Route::get('followings', 'UsersController@followings')->name('followings');
+  Route::get('followers', 'UsersController@followers')->name('followers');
+});

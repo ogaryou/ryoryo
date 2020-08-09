@@ -100,7 +100,7 @@ class RegisterController extends Controller
      }
 
     public function added(){
-        $username = \DB::table('users')->latest()->first();
+        $username = DB::table('users')->latest()->first();
         return view('auth.added',['username'=>$username]);
         
     }

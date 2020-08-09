@@ -26,23 +26,30 @@ class UsersController extends Controller
         }
         return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword]);
     }
-    public function follow(User $user)
+    public function followings($id)
     {
-        $follower = Auth::user();
-        $is_following = $follower->isFollowing($user->id);
-        if(!$is_following){
-             $follower->follow($user->id);
-        }
-        return back();
-    }
-    public function unfollow(User $user)
-    {
-        $follower = Auth::user();
-        $is_following = $follower->isFollowing($user->id);
-        if($is_following){
-            $follower->unfollow($user->id);
-        }
+        $user = User::find($id);
 
-        return back();
+        $data = [
+            'username' => $user,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.search', $data);
     }
+
+    public function followers($id)
+    {
+        $user = User::find($id);
+
+        $data = [
+            'username' => $user,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.search', $data);
+    }
+    
 }

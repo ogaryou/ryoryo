@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -28,26 +29,37 @@ class User extends Authenticatable
     ];
     protected $rememberTokenName = false;
 
-    public function follows()
+    public function followings()
     {
-        return $this->belongsToMany('App\Follow', 'follow_user','id', 'follow_id' );
+        return $this->belongsToMany(User::class,  'follow_user','user_id', 'follow_id' )->withTimestamps();
+    }
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follow_user', 'follow_id', 'user_id')->withTimestamps();
     }
 
-    public function follow($user_id)
+    public function is_following($userId)
     {
-        return $this->follows()->attach($user_id);
+        return $this->followings()->where('follow_id', $userId)->exists();
     }
-    public function unfollow($user_id)
+
+    public function follow($userId)
     {
-        return $this->follows()->detach($user_id);
+        $existing = $this->is_following($userId);
+        $myself = $this->id == $userId;
+
+        if (!$existing && !$myself) {
+            $this->followings()->attach($userId);
+        }
     }
-    public function isFollowing($user_id) 
+    public function unfollow($userId)
     {
-        return $this->follows()->where('follow_id', $user_id)->exists();
-    }
-    public function isFollowed($user_id)
-    {
-        return $this->followers()->where('follower_id', $user_id);
+        $existing = $this->is_following($userId);
+        $myself = $this->id == $userId;
+
+        if ($existing && !$myself){
+            $this->followings()->detach($userId);
+        }
     }
 }
 

@@ -10,6 +10,6 @@ class Follow extends Model
     //
     public function users()
     {
-        return $this->belongsToMany('App\User', 'follow_user','follow_id', 'id' );
+        return $this->belongsToMany('App\User', 'follow_user','follow_id', 'user_id' );
     }
 }
