@@ -11,7 +11,7 @@
         @else
         
             {!! Form::open(['route' => ['follow', $user->id]]) !!}
-                {!! Form::submit('フォロー', ['class' => "button btn btn-primary mt-1"]) !!}
+                {!! Form::submit('フォローする', ['class' => "button btn btn-primary mt-1"]) !!}
             {!! Form::close() !!}
             
         @endif

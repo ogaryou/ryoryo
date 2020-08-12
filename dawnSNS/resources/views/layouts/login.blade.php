@@ -9,6 +9,7 @@
     <title></title>
     <link rel="stylesheet" href="{{asset('css/reset.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/serch.css')}}">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -52,7 +53,7 @@
         <div id="side-bar">
             <div id="confirm">
                 <p>{{$username->username}}さんの</p>
-                <div>
+                <div　>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
