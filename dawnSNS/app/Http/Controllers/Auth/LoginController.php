@@ -56,7 +56,7 @@ class LoginController extends Controller
         return view("auth.login");
     }
     public function logout() {
-        Auth::logout(); // logout user
+        \Auth::logout(); // logout user
         return redirect('/login');
     }  
 

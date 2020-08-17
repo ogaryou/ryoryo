@@ -1,0 +1,119 @@
+.search-text{
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  
+}
+.name-search{
+  margin-right: 5px;
+  outline: none;
+  border-radius: 3px ;
+  height: 30px;
+  width: 400px;
+}
+
+.btn-serch{
+  /* height: 25px;
+  width: 30px; */
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-bottom: solid 5px #36528c;
+  border-right: solid 5px #5375bd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+form, button{
+  appearance: none;
+}
+.main-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+td.username{
+  width: 500px;
+  vertical-align:middle;
+}
+td.follow-bottom{
+  vertical-align:middle;
+}
+.image-icon{
+  width: 40px;
+  height: 40px;
+  clip-path: circle(20px at 20px 20px);
+  margin-right: 10px;
+} 
+.button.btn.btn-primary.mt-1{
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-bottom: solid 5px #36528c;
+  border-right: solid 5px #5375bd;
+  border-radius: 5px;
+  cursor: pointer;
+} 
+.button.btn.btn-danger.mt-1{
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  background: 	#F30100;
+  color: #FFF;
+  border-bottom: solid 5px #AF011C;
+  border-right: solid 5px #B1221A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.p-font{
+  color: #5D5D63;
+  font-size: 15px;
+}
+.follow-count{
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.btn1{
+
+  background: #003366;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 2px #5375bd;
+  margin: 0 0 0 auto;
+
+}
+.btn2{
+  background: #003366;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 2px #5375bd;
+  margin-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-link{
+  color: #fff;
+  font-size: 12px;
+  font-style: italic;
+  text-shadow: 2px 2px 2px #DCDCDC;
+ 
+}
+
+
