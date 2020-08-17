@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -32,6 +33,7 @@ class User extends Authenticatable
     public function followings()
     {
         return $this->belongsToMany(User::class,  'follow_user','user_id', 'follow_id' )->withTimestamps();
+        
     }
     public function followers()
     {
@@ -61,5 +63,6 @@ class User extends Authenticatable
             $this->followings()->detach($userId);
         }
     }
-}
 
+
+}

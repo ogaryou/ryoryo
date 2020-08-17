@@ -45,27 +45,26 @@
     </header>
 
     <div id="row">
-
         <div id="container">
             @yield('content')
+            @yield('post')
         </div >
-
         <div id="side-bar">
-            <div id="confirm">
-                <p>{{$username->username}}さんの</p>
-                <div　>
-                <p>フォロー数</p>
-                <p>〇〇名</p>
+            <div id="confirms">
+                <p class="p-font">{{$username->username}}さんの</p>
+                <div class="follow-count">
+                <p class="p-font">フォロー数</p>
+                <p class="p-font">名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p class="btn1"><a href="" class="btn-link">フォローリスト</a></p>
+                <div class="follow-count">
+                <p class="p-font">フォロワー数</p>
+                <p class="p-font">〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn1"><a href="" class="btn-link">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
-        </div>
+            <p class="btn2"><a href="/search" class="btn-link">ユーザー検索</a></p>
+        </div>    
     </div>
     <footer>
     </footer>

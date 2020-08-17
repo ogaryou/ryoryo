@@ -45,10 +45,8 @@ Route::get('/follower-list','PostsController@index');
 
 Route::post('users/follow', 'UsersController@followings')->name('followings');
 Route::delete('users/unfollow', 'UsersController@unfollowers')->name('unfollowers');
-// Route::group(['prefix' => 'users/{id}'], function () {
-//   Route::get('followings', 'UsersController@followings')->name('followings');
-//   Route::get('followers', 'UsersController@followers')->name('followers');
-// });
+
+
 Route::group(['prefix' => 'users/{id}'], function () {
   Route::post('follow', 'FollowUserController@store')->name('follow');
   Route::delete('unfollow', 'FollowUserController@destroy')->name('unfollow');

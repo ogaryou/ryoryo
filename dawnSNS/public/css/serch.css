@@ -71,5 +71,49 @@ td.follow-bottom{
   border-radius: 5px;
   cursor: pointer;
 }
+.p-font{
+  color: #5D5D63;
+  font-size: 15px;
+}
+.follow-count{
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.btn1{
+
+  background: #003366;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 2px #5375bd;
+  margin: 0 0 0 auto;
+
+}
+.btn2{
+  background: #003366;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 2px #5375bd;
+  margin-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-link{
+  color: #fff;
+  font-size: 12px;
+  font-style: italic;
+  text-shadow: 2px 2px 2px #DCDCDC;
+ 
+}
 
 
