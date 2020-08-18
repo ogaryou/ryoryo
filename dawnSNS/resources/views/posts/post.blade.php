@@ -14,5 +14,8 @@
     </div>
     
   </div>
+  <div class="text-open">
+    <table class="posts-table"></table>
+  </div>
 </div>  
 @endsection

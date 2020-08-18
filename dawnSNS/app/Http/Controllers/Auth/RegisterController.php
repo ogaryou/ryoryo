@@ -78,26 +78,41 @@ class RegisterController extends Controller
     // }
 
         
-    public function register(Request $request){
+    // public function register(Request $request){
       
-        // $request->validate([
-        //     'username' => 'required|string|max:4',
-        //     'mail' => 'required|string|email|max:12|min:4|exists:users,mail,deleted_at,NULL',
-        //     'password' => 'required|string|max:12|confirmed',
-        // ]);
+    //     $request->validate([
+    //         'username' => 'required|string|max:4',
+    //         'mail' => 'required|string|email|max:12|min:4|exists:users,mail,deleted_at,NULL',
+    //         'password' => 'required|string|max:12|confirmed',
+    //     ]);
     
-    if($request->isMethod('post')){
+    // if($request->isMethod('post')){
 
-    $data = $request->input();
+    // $data = $request->input();
 
-    $this->create($data);
+    // $this->create($data);
 
-    return redirect('added');
+    // return redirect('added');
+    // }
+    
+    // return view('auth.register');
+
+    //  }
+    public function register(Request $request){
+        if($request->isMethod('post')){
+            $request ->validate([
+            'username' => 'bail|required|string|min:4|max:12,unique:users',
+            'mail' => 'bail|required|string|email|min:4',
+            'password' => 'bail|required|string|min:4|max:12|confirmed|alpha_num',
+            'password_confirmation' => 'required',
+            ]);
+            $data = $request->input();
+            $this -> create($data);
+            $username = $request->input('username');
+            return redirect('/added')->with('username',$username);
+        }
+        return view('auth.register');
     }
-    
-    return view('auth.register');
-
-     }
 
     public function added(){
         $username = DB::table('users')->latest()->first();
