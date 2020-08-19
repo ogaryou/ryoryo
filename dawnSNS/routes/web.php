@@ -25,6 +25,7 @@ Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/top', 'Auth\LoginController@index');
 
+
 Route::get('/', 'Auth\RegisterController@register');
 Route::post('/', 'Auth\RegisterController@register');
 // Route::post('/', 'Auth\RegisterController@validator');

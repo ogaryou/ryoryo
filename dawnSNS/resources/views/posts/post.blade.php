@@ -6,8 +6,10 @@
       <img src="{{asset('images/dawn.png')}}" class="image-icon"/>
     </div>
     {!! Form::open(['url' => '/top']) !!}
+    {{ csrf_field() }}
     <div class="post-field">
-    {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
+    
+    {!! Form::textarea('newPost',null, ['required', 'class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
     </div>
     <div class="post-submit">
     {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post', 'type' => 'submit']) !!}
@@ -15,7 +17,14 @@
     
   </div>
   <div class="text-open">
-    <table class="posts-table"></table>
+    <table class="posts-table">
+      @foreach ($posts as $posts)
+      <tr>
+        <td></td>
+        <td>{{$posts->posts}}</td>
+      </tr>
+      @endforeach
+    </table>
   </div>
 </div>  
 @endsection
