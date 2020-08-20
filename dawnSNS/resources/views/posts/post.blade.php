@@ -20,8 +20,10 @@
     <table class="posts-table">
       @foreach ($posts as $posts)
       <tr>
-        <td></td>
+        <td><img src="{{ asset('images/'. $username->images)}}" class="image-icon"/></td>
+        <td>{{$username->username}}</td>
         <td>{{$posts->posts}}</td>
+        <td>{{$posts->created_at}}</td>
       </tr>
       @endforeach
     </table>

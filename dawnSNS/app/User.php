@@ -63,6 +63,12 @@ class User extends Authenticatable
             $this->followings()->detach($userId);
         }
     }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+        
+    
 
 
 }

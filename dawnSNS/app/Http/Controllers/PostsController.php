@@ -21,9 +21,10 @@ class PostsController extends Controller
     }
     public function create(Request $request){
         $posts = $request->input('newPost');
+        $username = Auth::user();
         Post::create([
+            'username' =>$username,
             'posts' => $posts,
-            
             'user_id' => auth()->id()
             
         ]);
