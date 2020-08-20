@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Post;
+use App\User;
 class PostsController extends Controller
 {
     //
@@ -21,12 +22,9 @@ class PostsController extends Controller
     }
     public function create(Request $request){
         $posts = $request->input('newPost');
-        $username = Auth::user();
         Post::create([
-            'username' =>$username,
             'posts' => $posts,
-            'user_id' => auth()->id()
-            
+            'user_id' => auth()->id(),
         ]);
         $posts = Post::all();
         return redirect('/top');
