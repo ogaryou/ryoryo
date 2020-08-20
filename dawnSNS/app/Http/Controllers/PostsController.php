@@ -7,14 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
+use App\Follow;
 class PostsController extends Controller
 {
     //
     public function index(){
-        $username = Auth::user();
+        $username = auth()->user();
         // $username = \DB::table('users');
        
-        $posts = Post::all();
+        $posts = Post::latest()->get();
         return view('posts.post',['username' => $username,'posts'=>$posts]);
 
         // return view('posts.index',compact('username'));
@@ -30,5 +31,5 @@ class PostsController extends Controller
         return redirect('/top');
 
     }
-
+    
 }
