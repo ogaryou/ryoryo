@@ -14,8 +14,8 @@ class PostsController extends Controller
     public function index(){
         $username = auth()->user();
         // $username = \DB::table('users');
-       
-        $posts = Post::latest()->get();
+        $user_id = Auth::id();
+        $posts = Post::where('user_id',$user_id)->orderBy('id', 'desc')->get();
         return view('posts.post',['username' => $username,'posts'=>$posts]);
 
         // return view('posts.index',compact('username'));
@@ -25,9 +25,8 @@ class PostsController extends Controller
         $posts = $request->input('newPost');
         Post::create([
             'posts' => $posts,
-            'user_id' => auth()->id(),
+            'user_id' => Auth::user()->id,
         ]);
-        $posts = Post::all();
         return redirect('/top');
 
     }
