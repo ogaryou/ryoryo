@@ -11,5 +11,9 @@ class Post extends Model
     {
     return $this->belongsTo(User::class);
     }
+    public function follow()
+    {
+        return $this->belongsTo(Follow::class);
+    }
     
 }

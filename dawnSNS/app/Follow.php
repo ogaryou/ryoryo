@@ -12,6 +12,10 @@ class Follow extends Model
     {
         return $this->belongsToMany('App\User', 'follow_user','follow_id', 'user_id' );
     }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
     public function getFollowCount($user)
     {
