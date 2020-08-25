@@ -16,8 +16,9 @@ class PostsController extends Controller
         // $username = \DB::table('users');
         $user_id = Auth::id();
         $follows = Follow::all();
+        
         $posts = Post::where('user_id',$user_id)->orderBy('id', 'desc')->get();
-        return view('posts.post',['username' => $username,'posts'=>$posts]);
+        return view('posts.post',['username' => $username,'posts'=>$posts,]);
 
         // return view('posts.index',compact('username'));
         // return view('auth.added',['username' => $username],compact('username'));

@@ -25,6 +25,9 @@ class Follow extends Model
     {
         return $this->where('follower_id', $user)->count();
     }
-    
+    public function following($user_id)
+    {
+        return $this->where('follow_id', $user_id)->get('follow_id');
+    }
 
 }
