@@ -42,7 +42,7 @@ Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search')->name('search');
 
-Route::get('/follow-list','PostsController@index');
+Route::get('/follow-list','PostsController@followlist');
 Route::get('/follower-list','PostsController@index');
 
 Route::post('users/follow', 'UsersController@followings')->name('followings');

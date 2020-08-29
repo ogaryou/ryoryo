@@ -13,12 +13,12 @@ class Post extends Model
     }
     public function follow()
     {
-        return $this->belongsTo(Follow::class);
+        return $this->belongsTo('App\Follow');
     }
     public function getpost(Int $user_id, Array $follow_ids)
     {
         // 自身とフォローしているユーザIDを結合する
         $follow_ids[] = $user_id;
-        return $this->where('user_id', $user_id)->where('follow_id',$follow_ids)->orderBy('created_at', 'DESC');
+        return $this->whereIn('user_id', $follow_ids)->where('follow_id',$follow_ids)->orderBy('created_at', 'DESC');
     }
 }
