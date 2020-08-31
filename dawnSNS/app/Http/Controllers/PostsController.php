@@ -15,14 +15,14 @@ class PostsController extends Controller
         $username = auth()->user();
         // $username = \DB::table('users');
         $user_id = Auth::id();
-        $follows = Follow::all();
+        $follow = DB::table('follow_user')->where('user_id',$user_id)->pluck('follow_id');
         $count= DB::table('follow_user')->where('user_id',$user_id)->count();
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
-        // $posts=DB::table('posts')->join('follow_user','posts.user_id','=','follow_user.follow_id')->get();
-        $posts= Post::with(['follow'])->where('user_id',$user_id)->orderBy('id', 'desc')->get();
-        // $posts = Post::where('user_id',$user_id)->with('follow_user.follow_id',$follows)->orderBy('id', 'desc')->get();
+        // $posts=DB::table('posts')->whereIn('user_id',$follow)->where('user_id',$user_id)->orderBy('id', 'desc')->get();
+        // $posts= Post::with(['follow'])->where('user_id',$user_id)->orderBy('id', 'desc')->get();
+        $posts = Post::whereIn('user_id',$follow)->orwhere('user_id',$user_id)->orderBy('created_at', 'desc')->get();
+        
         return view('posts.post',['username' => $username,'posts'=>$posts,'count'=>$count,'counts'=>$counts]);
-
         // return view('posts.index',compact('username'));
         // return view('auth.added',['username' => $username],compact('username'));
     }
