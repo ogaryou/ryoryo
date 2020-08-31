@@ -19,6 +19,7 @@ class UsersController extends Controller
     }
     public function search(Request $request){
         $username = Auth::user();
+        $user_id = Auth::id();
         $keyword = $request->input('use');
         
         if(!empty($keyword)){
@@ -31,7 +32,9 @@ class UsersController extends Controller
         // $count_following = $called->counts();
         
         // $count_followings= DB::table('follow_user')->count();
-        return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword,]);
+        $count= DB::table('follow_user')->where('user_id',$user_id)->count();
+        $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
+        return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword,'count' => $count,'counts'=>$counts]);
     }
 
 

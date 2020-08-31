@@ -12,6 +12,10 @@ class Follow extends Model
     {
         return $this->belongsToMany('App\User', 'follow_user','follow_id', 'user_id' );
     }
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 
     public function getFollowCount($user)
     {
@@ -21,6 +25,9 @@ class Follow extends Model
     {
         return $this->where('follower_id', $user)->count();
     }
-    
+    public function following(Int $user_id)
+    {
+        return $this->where('follow_id', $user_id)->get('follower_id');
+    }
 
 }

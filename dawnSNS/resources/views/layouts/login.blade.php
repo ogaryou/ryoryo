@@ -54,12 +54,12 @@
                 <p class="p-font">{{$username->username}}さんの</p>
                 <div class="follow-count">
                 <p class="p-font">フォロー数</p>
-                <p class="p-font">名</p>
+                <p class="p-font">{{$count}}名</p>
                 </div>
-                <p class="btn1"><a href="" class="btn-link">フォローリスト</a></p>
+                <p class="btn1"><a href="/follow-list" class="btn-link">フォローリスト</a></p>
                 <div class="follow-count">
                 <p class="p-font">フォロワー数</p>
-                <p class="p-font">〇〇名</p>
+                <p class="p-font">{{$counts}}名</p>
                 </div>
                 <p class="btn1"><a href="" class="btn-link">フォロワーリスト</a></p>
             </div>

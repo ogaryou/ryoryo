@@ -25,6 +25,7 @@ Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/top', 'Auth\LoginController@index');
 
+
 Route::get('/', 'Auth\RegisterController@register');
 Route::post('/', 'Auth\RegisterController@register');
 // Route::post('/', 'Auth\RegisterController@validator');
@@ -34,13 +35,14 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::post('/top','PostsController@create');
 
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search')->name('search');
 
-Route::get('/follow-list','PostsController@index');
+Route::get('/follow-list','PostsController@followlist');
 Route::get('/follower-list','PostsController@index');
 
 Route::post('users/follow', 'UsersController@followings')->name('followings');
