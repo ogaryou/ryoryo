@@ -23,7 +23,6 @@
         <td><img src="{{ asset('images/'. $username->images)}}" class="image-icon"/></td>
         <td>{{$posts->user->username}}</td>
         <td>{{$posts->posts}}</td>
-        
         <td>{{$posts->created_at}}</td>
       </tr>
       @endforeach
