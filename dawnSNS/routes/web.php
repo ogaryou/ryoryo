@@ -43,6 +43,7 @@ Route::get('/profile','UsersController@profile');
 Route::get('/search','UsersController@search')->name('search');
 
 Route::get('/follow-list','PostsController@followlist');
+Route::get('/follow-list/{id}/profile','PostsController@follows');
 Route::get('/follower-list','PostsController@index');
 
 Route::post('users/follow', 'UsersController@followings')->name('followings');
