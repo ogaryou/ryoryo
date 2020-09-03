@@ -61,7 +61,7 @@
                 <p class="p-font">フォロワー数</p>
                 <p class="p-font">{{$counts}}名</p>
                 </div>
-                <p class="btn1"><a href="" class="btn-link">フォロワーリスト</a></p>
+                <p class="btn1"><a href="/follower-list" class="btn-link">フォロワーリスト</a></p>
             </div>
             <p class="btn2"><a href="/search" class="btn-link">ユーザー検索</a></p>
         </div>    

@@ -54,7 +54,25 @@ class PostsController extends Controller
         $users = Post::whereIn('user_id',$user)->orderBy('created_at', 'desc')->get();
  
         return view('follows.followingpage',['username' => $username,'count'=>$count,'counts'=>$counts,'users'=>$users,'user'=>$user]);
-
+    }
+    public function followerlist(){
+        $username = auth()->user();
+        $user_id = Auth::id();
+        $count= DB::table('follow_user')->where('user_id',$user_id)->count();
+        $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
+        $follower=DB::table('follow_user')->where('follow_id',$user_id)->pluck('user_id');
+        $followerlist =User::whereIn('id',$follower)->orwhere('images',$user_id)->orderBy('created_at', 'desc')->get();
+        $posts = Post::whereIn('user_id',$follower)->orderBy('created_at', 'desc')->get();
+        return view('follows.followerList',['username' => $username,'count'=>$count,'counts'=>$counts,'followerlist'=>$followerlist,'posts' =>$posts]);
+    }
+    public function followers($id){
+        $username = auth()->user();
+        $user_id = Auth::id();
+        $count= DB::table('follow_user')->where('user_id',$user_id)->count();
+        $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
+        $user = User::find($id);
+        $users = Post::whereIn('user_id',$user)->orderBy('created_at', 'desc')->get();
+        return view('follows.followerpage',['username' => $username,'count'=>$count,'counts'=>$counts,'users'=>$users,'user'=>$user]);
     }
     
 }
