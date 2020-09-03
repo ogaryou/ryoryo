@@ -60,7 +60,10 @@ class PostsController extends Controller
         $user_id = Auth::id();
         $count= DB::table('follow_user')->where('user_id',$user_id)->count();
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
-        return view('follows.followerList',['username' => $username,'count'=>$count,'counts'=>$counts]);
+        $follower=DB::table('follow_user')->where('follow_id',$user_id)->pluck('user_id');
+        $followerlist =User::whereIn('id',$follower)->orwhere('images',$user_id)->orderBy('created_at', 'desc')->get();
+        $posts = Post::whereIn('user_id',$follower)->orderBy('created_at', 'desc')->get();
+        return view('follows.followerList',['username' => $username,'count'=>$count,'counts'=>$counts,'followerlist'=>$followerlist,'posts' =>$posts]);
     }
     
 }
