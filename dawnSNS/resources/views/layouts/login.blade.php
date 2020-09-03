@@ -35,7 +35,7 @@
                 <div class="drop-menu">
                 <ul class="top-menu-header">
                     <li><a href="/top" class="top-link">ホーム</a></li>
-                    <li><a href="/profile" class="top-link">プロフィール</a></li>
+                    <li><a href="/profile/{{$username->id}}/update-form" class="top-link">プロフィール</a></li>
                     <li><a href="/logout" class="top-link">ログアウト</a></li>
                 </ul>  
             </div>

@@ -14,8 +14,11 @@ class UsersController extends Controller
     //
     
     public function profile(){
-        $username = Auth::user();
-        return view('users.profile',['username'=> $username]);
+        $username = auth()->user();
+        $user_id = Auth::id();
+        $count= DB::table('follow_user')->where('user_id',$user_id)->count();
+        $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
+        return view('users.profile',['username'=> $username,'count'=>$count,'counts'=>$counts]);
     }
     public function search(Request $request){
         $username = Auth::user();

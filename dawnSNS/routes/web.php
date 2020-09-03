@@ -38,7 +38,7 @@ Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@create');
 
 Route::get('/logout','Auth\LoginController@logout');
-Route::get('/profile','UsersController@profile');
+Route::get('/profile/{id}/update-form','UsersController@profile');
 
 Route::get('/search','UsersController@search')->name('search');
 
