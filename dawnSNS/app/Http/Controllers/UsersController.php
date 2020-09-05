@@ -13,12 +13,14 @@ class UsersController extends Controller
 {
     //
     
-    public function profile(){
+    public function profile($id){
         $username = auth()->user();
         $user_id = Auth::id();
         $count= DB::table('follow_user')->where('user_id',$user_id)->count();
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
-        return view('users.profile',['username'=> $username,'count'=>$count,'counts'=>$counts]);
+
+        $user =DB::table('users')->where('id', $id)->first();
+        return view('users.profile',['username'=> $username,'count'=>$count,'counts'=>$counts],compact('user'));
     }
     public function search(Request $request){
         $username = Auth::user();
