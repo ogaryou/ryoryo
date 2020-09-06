@@ -8,7 +8,7 @@
       <img src="{{asset('images/'. $username->images)}}" class="image-icon"/>
     </div>
     <div class="users-profile-update">
-      {!! Form::open(['url' => '/top','method'=>'post','files'=> true,"enctype"=>"multipart/form-data"])!!}
+      {!! Form::open(['method'=>'post','files'=> true,"enctype"=>"multipart/form-data"])!!}
       {!! Form::hidden('id', $username->id) !!}
       <tr>
         <th>{{ Form::label('UserName') }}</th>
