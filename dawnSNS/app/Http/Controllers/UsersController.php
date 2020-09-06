@@ -13,9 +13,43 @@ class UsersController extends Controller
 {
     //
     
-    public function profile(){
-        $username = Auth::user();
-        return view('users.profile',['username'=> $username]);
+
+    public function profile($id){
+        $username = auth()->user();
+        $user_id = Auth::id();
+        $count= DB::table('follow_user')->where('user_id',$user_id)->count();
+        $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
+
+        $user =DB::table('users')->where('id', $id)->first();
+        return view('users.profile',['username'=> $username,'count'=>$count,'counts'=>$counts],compact('user'));
+    }
+    public function update(Request $request){
+        
+        // $id =$request->input('id');
+        // $up_username = $request->input('username');
+        // $up_mail =$request->input('mail');
+        // $up_newpassword=bcrypt($request['password']);
+        // $up_images=$request->file('images');
+        // $up_Bio=$request->input('bio');
+        // DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'password'=>$up_newpassword,'bio'=>$up_Bio,'images'=>$up_images]);
+        // $this->validate($request, [
+        //     'images' =>[
+        //         'file',
+        //         'image',
+        //         'mimes:jpeg,png',
+        //     ]
+        // ]);
+        // if($request->file('images')){
+           
+        //     $filename =$request->file('images')->store('public/images');
+        //     $user = User::find(auth()->id());
+        //     $user->images =basename($filename);
+        //     $user->save();
+            
+            
+        // }
+        return redirect('/top');
+
     }
     public function search(Request $request){
         $username = Auth::user();
