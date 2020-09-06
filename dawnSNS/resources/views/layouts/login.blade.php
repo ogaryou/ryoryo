@@ -30,7 +30,7 @@
             <div id="top-header">
                 <div id="top-link-header">
                     <p class="name">{{$username->username}}さん</p>
-                    <img src="{{asset('images/dawn.png')}}" class="main-image">
+                    <img src="{{asset('storage/images'.$username->images)}}" class="main-image">
                 </div>
                 <div class="drop-menu">
                 <ul class="top-menu-header">
