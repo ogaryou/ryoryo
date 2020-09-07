@@ -41,7 +41,7 @@ class UsersController extends Controller
         ]);
         if($request->file('images')){
            
-            $filename =$request->file('images')->store('public/images');
+            $filename =$request->file('images')->store('public/');
             $user = User::find(auth()->id());
             $user->images =basename($filename);
             $user->save();

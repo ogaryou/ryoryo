@@ -3,7 +3,11 @@
 <div class="main-contents">
   <div class="post-area">
     <div class="post-user">
-      <img src="{{asset('images/dawn.png')}}" class="image-icon"/>
+    @if($username->images == null)
+        <img src="{{asset('storage/dawn.png')}}" class="image-icon">
+        @else
+        <img src="{{asset('storage/'.$username->images)}}" class="image-icon">
+        @endif
     </div>
     {!! Form::open(['url' => '/top']) !!}
     {{ csrf_field() }}
@@ -20,7 +24,11 @@
     <table class="posts-table">
       @foreach ($posts as $posts)
       <tr>
-        <td><img src="{ asset('storage/.'$username->images)}" class="image-icon"/></td>
+        @if($posts->user->images == null)
+        <td><img src="{{asset('storage/dawn.png')}}" class="image-icon"></td>
+        @else
+        <td><img src="{{asset('storage/'.$username->images)}}" class="image-icon"></td>
+        @endif
         <td>{{$posts->user->username}}</td>
         <td>{{$posts->posts}}</td>
         <td>{{$posts->created_at}}</td>
