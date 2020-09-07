@@ -8,8 +8,13 @@
   </div>
   <div class="follower-list-image">
   @foreach($followerlist as $followerlist)
+    
     <tr class="image-list">
-        <td><a href="{{ action('PostsController@followers',$followerlist->id)}}"><img src="{{ asset('images/'. $followerlist->images)}}" class="image-icon"/></a></td>
+    @if($followerlist->user->images ==null)
+        <td><a href="{{ action('PostsController@followers',$followerlist->id)}}"><img src="{{asset('storage/dawn.png')}}" class="image-icon"/></a></td>
+    @else    
+        <td><a href="{{ action('PostsController@followers',$followerlist->id)}}"><img src="{{ asset('storage/'. $followerlist->images)}}" class="image-icon"/></a></td>
+    @endif    
     </tr>
  @endforeach
   </div>

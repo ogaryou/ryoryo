@@ -26,8 +26,10 @@
       <tr>
         @if($posts->user->images == null)
         <td><img src="{{asset('storage/dawn.png')}}" class="image-icon"></td>
-        @else
+        @elseif($posts->user->images == $username->images)
         <td><img src="{{asset('storage/'.$username->images)}}" class="image-icon"></td>
+        @else
+        <td><img src="{{asset('storage/'.$posts->user->images)}}" class="image-icon"></td>
         @endif
         <td>{{$posts->user->username}}</td>
         <td>{{$posts->posts}}</td>

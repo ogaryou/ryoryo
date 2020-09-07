@@ -67,7 +67,7 @@ class UsersController extends Controller
         // $count_followings= DB::table('follow_user')->count();
         $count= DB::table('follow_user')->where('user_id',$user_id)->count();
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
-        return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword,'count' => $count,'counts'=>$counts]);
+        return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword,'count' => $count,'counts'=>$counts,'images'=>$username]);
     }
 
 
