@@ -43,7 +43,7 @@ class PostsController extends Controller
         $follow = DB::table('follow_user')->where('user_id',$user_id)->pluck('follow_id');
         $following = User::whereIn('id',$follow)->orwhere('images',$user_id)->orderBy('created_at', 'desc')->get();
         $posts = Post::whereIn('user_id',$follow)->orderBy('created_at', 'desc')->get();
-        return view('follows.followList',['username' => $username,'count'=>$count,'counts'=>$counts,'following'=>$following,'posts' =>$posts]);
+        return view('follows.followList',['username' => $username,'images'=>$username,'count'=>$count,'counts'=>$counts,'following'=>$following,'posts' =>$posts]);
     }
     public function follows($id){
         $username = auth()->user();
@@ -63,7 +63,7 @@ class PostsController extends Controller
         $follower=DB::table('follow_user')->where('follow_id',$user_id)->pluck('user_id');
         $followerlist =User::whereIn('id',$follower)->orwhere('images',$user_id)->orderBy('created_at', 'desc')->get();
         $posts = Post::whereIn('user_id',$follower)->orderBy('created_at', 'desc')->get();
-        return view('follows.followerList',['username' => $username,'count'=>$count,'counts'=>$counts,'followerlist'=>$followerlist,'posts' =>$posts]);
+        return view('follows.followerList',['username' => $username,'images'=>$username,'count'=>$count,'counts'=>$counts,'followerlist'=>$followerlist,'posts' =>$posts]);
     }
     public function followers($id){
         $username = auth()->user();

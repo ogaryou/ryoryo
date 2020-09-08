@@ -10,7 +10,7 @@
   @foreach($followerlist as $followerlist)
     
     <tr class="image-list">
-    @if($followerlist->user->images ==null)
+    @if($username->images ==null)
         <td><a href="{{ action('PostsController@followers',$followerlist->id)}}"><img src="{{asset('storage/dawn.png')}}" class="image-icon"/></a></td>
     @else    
         <td><a href="{{ action('PostsController@followers',$followerlist->id)}}"><img src="{{ asset('storage/'. $followerlist->images)}}" class="image-icon"/></a></td>
@@ -22,7 +22,7 @@
   <div class="follower-list-posts">
   @foreach($posts as $posts)
     <ul class="post-list">
-    <li><a href="{{ action('PostsController@followers', $posts->user->id)}}"><img src="{{ asset('images/'. $followerlist->images)}}" class="image-icon"/></a></li>
+    <li><a href="{{ action('PostsController@followers', $posts->user->id)}}"><img src="{{ asset('storage/'. $posts->user->images)}}" class="image-icon"/></a></li>
     <tr>
         <td>{{$posts->user->username}}</td>
         <td>{{$posts->posts}}</td>
