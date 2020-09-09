@@ -22,12 +22,16 @@ class PostsController extends Controller
         // $posts= Post::with(['follow'])->where('user_id',$user_id)->orderBy('id', 'desc')->get();
         $posts = Post::whereIn('user_id',$follow)->orwhere('user_id',$user_id)->orderBy('created_at', 'desc')->get();
         
+
         return view('posts.post',['username' => $username,'posts'=>$posts,'count'=>$count,'counts'=>$counts,'images'=>$username]);
+
         // return view('posts.index',compact('username'));
         // return view('auth.added',['username' => $username],compact('username'));
     }
     public function create(Request $request){
+        
         $posts = $request->input('newPost');
+       
         Post::create([
             'posts' => $posts,
             'user_id' => Auth::user()->id,

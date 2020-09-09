@@ -14,6 +14,7 @@ class UsersController extends Controller
 {
     //
     
+
     public function profile($id){
         $username = auth()->user();
         $user_id = Auth::id();
@@ -56,6 +57,7 @@ class UsersController extends Controller
             
         }
         return redirect('/top');
+
     }
     public function search(Request $request){
         $username = Auth::user();
