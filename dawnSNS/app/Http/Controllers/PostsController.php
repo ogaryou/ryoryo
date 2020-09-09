@@ -53,7 +53,7 @@ class PostsController extends Controller
         $user = User::find($id);
         $users = Post::whereIn('user_id',$user)->orderBy('created_at', 'desc')->get();
  
-        return view('follows.followingpage',['username' => $username,'count'=>$count,'counts'=>$counts,'users'=>$users,'user'=>$user]);
+        return view('follows.followingpage',['username' => $username,'images' =>$username,'count'=>$count,'counts'=>$counts,'users'=>$users,'user'=>$user]);
     }
     public function followerlist(){
         $username = auth()->user();
@@ -72,7 +72,7 @@ class PostsController extends Controller
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
         $user = User::find($id);
         $users = Post::whereIn('user_id',$user)->orderBy('created_at', 'desc')->get();
-        return view('follows.followerpage',['username' => $username,'count'=>$count,'counts'=>$counts,'users'=>$users,'user'=>$user]);
+        return view('follows.followerpage',['username' => $username,'images'=>$username,'count'=>$count,'counts'=>$counts,'users'=>$users,'user'=>$user]);
     }
     
 }

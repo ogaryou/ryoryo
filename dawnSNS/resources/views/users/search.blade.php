@@ -17,7 +17,7 @@
         <td class="mainlogo"><img src="{{asset('storage/dawn.png')}}" class="image-icon"/></td>
         @elseif($user->images == $username->images)
         <td><img src="{{asset('storage/'.$username->images)}}" class="image-icon"></td>
-        @else($user->images)
+        @elseif($user->images)
         <td><img src="{{asset('storage/'.$user->images)}}" class="image-icon"></td>
         @endif
         <td class="username">{{ $user->username}}</td>  

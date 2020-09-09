@@ -5,8 +5,19 @@
 <div class="user-profile-page">
   <div class="user-profile">
     <div class="users-profile-image">
-      <img src="{{asset('images/'. $username->images)}}" class="image-icon"/>
+      @if($username->images== null)
+      <img src="{{asset('storage/dawn.png')}}" class="image-icon"/>
+      @else
+      <img src="{{ asset('storage/'.$username->images)}}" class="image-icon"/>
+      @endif
     </div>
+    @if($errors->any())
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach  
+      </ul>
+    @endif
     <div class="users-profile-update">
       {!! Form::open(['method'=>'post','files'=> true,"enctype"=>"multipart/form-data"])!!}
       {!! Form::hidden('id', $username->id) !!}
@@ -23,11 +34,11 @@
       </tr>
       <tr>
         <th>{{ Form::label('new Password') }}</th>
-        <td>{{ Form::password('password',['class' =>'newpassword'])}}</td>
+        <td>{{ Form::password('newpassword',['class' =>'newpassword'])}}</td>
       </tr>
       <tr>
         <th>{{ Form::label('Bio') }}</th>
-        <td>{!! Form::textarea('bio',$username->bio, ['required', 'class' => 'formBio']) !!}</td>
+        <td>{!! Form::textarea('bio',$username->bio, ['class' => 'formBio']) !!}</td>
       </tr>
       <tr>
         <th>{{ Form::label('Icon Image') }}</th>

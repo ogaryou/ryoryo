@@ -30,7 +30,11 @@
             <div id="top-header">
                 <div id="top-link-header">
                     <p class="name">{{$username->username}}さん</p>
+                    @if($username->images==null)
+                    <img src="{{asset('storage/dawn.png')}}" class="main-image"/>
+                    @else
                     <img src="{{asset('storage/'.$username->images)}}" class="main-image">
+                    @endif
                 </div>
                 <div class="drop-menu">
                 <ul class="top-menu-header">

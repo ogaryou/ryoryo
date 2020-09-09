@@ -4,7 +4,11 @@
 <div class="followuser">
   <div class="followuser-profile">
     <div class="followuser-profile-image">
-      <img src="{{ asset('images/'. $user->images)}}" class="image-icon"/>
+      @if($user->images ==null)
+      <img src="{{asset('storage/dawn.png')}}" class="image-icon"/>
+      @else
+      <img src="{{ asset('storage/'.$user->images)}}" class="image-icon"/>
+      @endif
     </div>
     <div class="followuser-profile-table">
       <tr>
@@ -40,7 +44,13 @@
   </div>
   <div class="users-timeline">
   @foreach($users as $users)
-    <div class="users-image"><img src="{{ asset('images/'. $user->images)}}" class="image-icon"/></div>
+    <div class="users-image">
+    @if($user->images ==null)
+    <img src="{{asset('storage/dawn.png')}}" class="image-icon"/>
+    @else
+    <img src="{{ asset('storage/'.$user->images)}}" class="image-icon"/>
+    @endif
+    </div>
     <div class="users-posts">
       <tr>
         <td>{{$user->username}}</td>

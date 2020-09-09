@@ -21,14 +21,21 @@ class UsersController extends Controller
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
 
         $user =DB::table('users')->where('id', $id)->first();
-        return view('users.profile',['username'=> $username,'count'=>$count,'counts'=>$counts],compact('user'));
+        return view('users.profile',['username'=> $username,'images'=>$username,'count'=>$count,'counts'=>$counts],compact('user'));
     }
     public function update(Request $request){
+        $user = User::find(auth()->id());
+        $request->validate ( [
+            'username' => ['min:4','max:12'],
+            'mail' => ['min:4','max:12','unique:users,mail,'. $user ->mail .',mail'],
+            'newpassword' => ['min:4','max:12','alpha_dash','different:password'],
+            'bio' =>['string','max:200']
+        ]);
         
         $id =$request->input('id');
         $up_username = $request->input('username');
         $up_mail =$request->input('mail');
-        $up_newpassword=bcrypt($request['password']);
+        $up_newpassword=bcrypt($request['newpassword']);
         $up_images=$request->file('images');
         $up_Bio=$request->input('bio');
         \DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'password'=>$up_newpassword,'bio'=>$up_Bio,'images'=>$up_images]);
@@ -36,7 +43,7 @@ class UsersController extends Controller
             'images' =>[
                 'file',
                 'image',
-                'mimes:jpeg,png',
+                'mimes:jpeg,png,jpg,bmp,gif,svg',
             ]
         ]);
         if($request->file('images')){
@@ -101,7 +108,4 @@ class UsersController extends Controller
 
         return view('users.search', $data);
     }
-
-
-    
 }
