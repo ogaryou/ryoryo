@@ -107,6 +107,8 @@ return [
         'mail'=>'メールアドレス',
         'username'=>'ユーザーネーム',
         'password'=>'パスワード',
+        'newpassword'=>'パスワード',
+        'images' => '画像',
         'password_confirmation'=>'確認用パスワード',
     ],
 
