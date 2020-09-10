@@ -6,6 +6,7 @@ use App\User;
 use App\Follower;
 use App\Http\Controllers\Controller;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -21,33 +22,40 @@ class UsersController extends Controller
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
 
         $user =DB::table('users')->where('id', $id)->first();
-        return view('users.profile',['username'=> $username,'count'=>$count,'counts'=>$counts],compact('user'));
+        return view('users.profile',['username'=> $username,'images'=>$username,'count'=>$count,'counts'=>$counts],compact('user'));
     }
     public function update(Request $request){
+        $user = User::find(auth()->id());
+        $request->validate ( [
+            'username' => ['min:4','max:12'],
+            'mail' => ['min:4','max:12','unique:users,mail,'. $user ->mail .',mail'],
+            'newpassword' => ['min:4','max:12','alpha_dash','different:password'],
+            'bio' =>['string','max:200']
+        ]);
         
-        // $id =$request->input('id');
-        // $up_username = $request->input('username');
-        // $up_mail =$request->input('mail');
-        // $up_newpassword=bcrypt($request['password']);
-        // $up_images=$request->file('images');
-        // $up_Bio=$request->input('bio');
-        // DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'password'=>$up_newpassword,'bio'=>$up_Bio,'images'=>$up_images]);
-        // $this->validate($request, [
-        //     'images' =>[
-        //         'file',
-        //         'image',
-        //         'mimes:jpeg,png',
-        //     ]
-        // ]);
-        // if($request->file('images')){
+        $id =$request->input('id');
+        $up_username = $request->input('username');
+        $up_mail =$request->input('mail');
+        $up_newpassword=bcrypt($request['newpassword']);
+        $up_images=$request->file('images');
+        $up_Bio=$request->input('bio');
+        \DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'password'=>$up_newpassword,'bio'=>$up_Bio,'images'=>$up_images]);
+        $this->validate($request, [
+            'images' =>[
+                'file',
+                'image',
+                'mimes:jpeg,png,jpg,bmp,gif,svg',
+            ]
+        ]);
+        if($request->file('images')){
            
-        //     $filename =$request->file('images')->store('public/images');
-        //     $user = User::find(auth()->id());
-        //     $user->images =basename($filename);
-        //     $user->save();
+            $filename =$request->file('images')->store('public/');
+            $user = User::find(auth()->id());
+            $user->images =basename($filename);
+            $user->save();
             
             
-        // }
+        }
         return redirect('/top');
 
     }
@@ -68,7 +76,7 @@ class UsersController extends Controller
         // $count_followings= DB::table('follow_user')->count();
         $count= DB::table('follow_user')->where('user_id',$user_id)->count();
         $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
-        return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword,'count' => $count,'counts'=>$counts]);
+        return view('users.search',['username'=> $username,'user' => $user,'keyword' => $keyword,'count' => $count,'counts'=>$counts,'images'=>$username]);
     }
 
 
@@ -102,7 +110,4 @@ class UsersController extends Controller
 
         return view('users.search', $data);
     }
-
-
-    
 }

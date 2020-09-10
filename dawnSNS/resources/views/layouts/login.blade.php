@@ -30,12 +30,16 @@
             <div id="top-header">
                 <div id="top-link-header">
                     <p class="name">{{$username->username}}さん</p>
-                    <img src="{{asset('images/dawn.png')}}" class="main-image">
+                    @if($username->images==null)
+                    <img src="{{asset('storage/dawn.png')}}" class="main-image"/>
+                    @else
+                    <img src="{{asset('storage/'.$username->images)}}" class="main-image">
+                    @endif
                 </div>
                 <div class="drop-menu">
                 <ul class="top-menu-header">
                     <li><a href="/top" class="top-link">ホーム</a></li>
-                    <li><a href="/profile" class="top-link">プロフィール</a></li>
+                    <li><a href="/profile/{{$username->id}}/update-form" class="top-link">プロフィール</a></li>
                     <li><a href="/logout" class="top-link">ログアウト</a></li>
                 </ul>  
             </div>

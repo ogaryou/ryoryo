@@ -13,9 +13,16 @@
     <table class="users-table">
       @foreach ($user as $user)
       <tr>
-        <td class="mainlogo"><img src="{{ asset('images/'. $user->images)}}" class="image-icon"/></td>
+        @if($user->images == null)
+        <td class="mainlogo"><img src="{{asset('storage/dawn.png')}}" class="image-icon"/></td>
+        @elseif($user->images == $username->images)
+        <td><img src="{{asset('storage/'.$username->images)}}" class="image-icon"></td>
+        @elseif($user->images)
+        <td><img src="{{asset('storage/'.$user->images)}}" class="image-icon"></td>
+        @endif
         <td class="username">{{ $user->username}}</td>  
         <td class="follow-bottom">@include('users.follow_button',['user'=>$user])</td>
+        
       </tr>
       @endforeach
     </table>
