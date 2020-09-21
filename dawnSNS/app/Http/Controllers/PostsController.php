@@ -21,8 +21,6 @@ class PostsController extends Controller
         // $posts=DB::table('posts')->whereIn('user_id',$follow)->where('user_id',$user_id)->orderBy('id', 'desc')->get();
         // $posts= Post::with(['follow'])->where('user_id',$user_id)->orderBy('id', 'desc')->get();
         $posts = Post::whereIn('user_id',$follow)->orwhere('user_id',$user_id)->orderBy('created_at', 'desc')->get();
-        
-
         return view('posts.post',['username' => $username,'posts'=>$posts,'count'=>$count,'counts'=>$counts,'images'=>$username]);
 
         // return view('posts.index',compact('username'));
@@ -31,13 +29,49 @@ class PostsController extends Controller
     public function create(Request $request){
         
         $posts = $request->input('newPost');
-       
+      
         Post::create([
             'posts' => $posts,
             'user_id' => Auth::user()->id,
         ]);
+      
         return redirect('/top');
 
+    }
+
+    // public function edit($id){
+    //     $data = Post::findOrFail($id);
+    //     $username = auth()->user();
+    //     // $username = \DB::table('users');
+    //     $user_id = Auth::id();
+    //     $follow = DB::table('follow_user')->where('user_id',$user_id)->pluck('follow_id');
+    //     $count= DB::table('follow_user')->where('user_id',$user_id)->count();
+    //     $counts=DB::table('follow_user')->where('follow_id',$user_id)->count();
+    //         $posts = Post::whereIn('user_id',$follow)->orwhere('user_id',$user_id)->orderBy('created_at', 'desc')->get();    
+    //     return view('posts.post',['username' => $username,'posts'=>$posts,'count'=>$count,'counts'=>$counts,'images'=>$username], compact('data'));
+    // }
+
+    public function update(Request $request){
+        $id = $request->input('id');
+        $data = Post::findOrFail($id);
+        $posts =$request->input('updatePost');
+        \DB::table('posts')
+        ->where('id',$id)
+        ->update(
+            ['posts' => $posts]
+           
+        );
+        return redirect('top');
+       
+        // return redirect(url('top',[$data->id]));
+
+    }
+
+    public function delete($id){
+        \DB::table('posts')
+        ->where('id', $id)
+        ->delete();
+        return redirect('top/{id}/delete');
     }
     public function followlist(){
         $username = auth()->user();

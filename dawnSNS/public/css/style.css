@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* html{
-}
-body{
 } */
-/* header */
+body{
+    width: 100%;
+} 
 header{
     background:#3C4767;
     height: 80px;
@@ -11,11 +11,15 @@ header{
 
 /* main content */
 #row{
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
 #container{
     flex: 0 0 80%;
+    width: 100%;
+    
+      
 }
 #side-bar{
     flex: 0 0 19%;

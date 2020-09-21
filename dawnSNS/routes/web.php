@@ -34,8 +34,17 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@create');
+// Route::get('top/{id}/edit', 'PostsController@edit'); 
+Route::patch('/top/{id}','PostsController@update');
+Route::post('/top','PostsController@delete');
+
+
+
+
+
 
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/profile/{id}/update-form','UsersController@profile');
