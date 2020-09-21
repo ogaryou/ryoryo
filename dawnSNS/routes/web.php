@@ -39,7 +39,7 @@ Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@create');
 // Route::get('top/{id}/edit', 'PostsController@edit'); 
 Route::patch('/top/{id}','PostsController@update');
-Route::post('/top','PostsController@delete');
+Route::delete('/top','PostsController@delete');
 
 
 

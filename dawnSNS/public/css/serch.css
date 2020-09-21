@@ -181,7 +181,7 @@ td.follow-bottom{
   width: 100px;
   height: 30px;
 }
-.btn.btn-cancel.btn-cancel{
+.btn-cancel{
   display: inline-block;
   position: relative;
   text-decoration: none;

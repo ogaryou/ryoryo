@@ -67,11 +67,12 @@ class PostsController extends Controller
 
     }
 
-    public function delete($id){
+    public function delete(Request $request){
+        $id = $request->input('id');
         \DB::table('posts')
         ->where('id', $id)
         ->delete();
-        return redirect('top/{id}/delete');
+        return redirect('top');
     }
     public function followlist(){
         $username = auth()->user();

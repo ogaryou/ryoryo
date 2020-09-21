@@ -66,7 +66,7 @@
               {!! Form::submit('OK',['class'=>'btn btn-danger btn-sm']) !!}
             </div>
             <div class="modal-button-right">
-            {!! Form::button('キャンセル', ['class' => 'btn btn-cancel btn-cancel','data-dismiss'=>"modal"])!!}
+            {!! Form::button('キャンセル', ['class' => 'btn-cancel','data-dismiss'=>"modal",])!!}
             </div>
 
           </div>

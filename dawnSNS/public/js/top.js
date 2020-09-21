@@ -37,7 +37,17 @@ $(function(){
       var click =  $(this).data('delete');
       $('.deleteModal-'+click).fadeIn();
       $('body').css({position: 'fixed', top: -scrollPos });
+
+      return false;
+    
     });
+    $('.btn-cancel').on('click',function(){
+      window.location.href = '/top';
+   
+    })
+
+
+
 
 
 // $('.edit-modal').on('show.bs.modal', function (event) {
