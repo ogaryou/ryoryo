@@ -3,33 +3,59 @@
 @section('content')
 
 {!! Form::open() !!}
+<div class="form-layout">
+  <div class="form-h2">
+    <h2>新規ユーザー登録</h2>
+  </div>
+  <div class="form-error">
+    @if($errors->any())
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+      @endforeach  
+    </ul>
+    @endif
+  </div>
 
-<h2>新規ユーザー登録</h2>
-@if($errors->any())
-<ul>
-  @foreach ($errors->all() as $error)
-    <li>{{$error}}</li>
-  @endforeach  
-</ul>
-@endif
+  <div class="form-box">
+    <div class="form-name">
+      {{ Form::label('ユーザー名') }}
+    </div>
+    <div class="form-contents">
+      {{ Form::text('username',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+    <div class="form-name">
+      {{ Form::label('メールアドレス') }}
+    </div>
+    <div class="form-contents">
+      {{ Form::text('mail',null,['class' => 'input']) }}
+    </div>
+    <div class="form-name">
+      {{ Form::label('パスワード') }}
+    </div>
+    <div class="form-contents">
+      {{ Form::text('password',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+    <div class="form-name">
+      {{ Form::label('パスワード確認') }}
+    </div>
+    <div class="form-contents">
+      {{ Form::text('password_confirmation',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
-{{ Form::submit('登録') }}
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+    {{ Form::submit('登録') }}
+  </div>
 
-{!! Form::close() !!}
+
+  <p><a href="/login">ログイン画面へ戻る</a></p>
+
+  {!! Form::close() !!}
+</div>
 
 
 @endsection

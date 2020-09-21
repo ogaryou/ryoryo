@@ -21,7 +21,7 @@
     <!--OGPタグ/twitterカード-->
 </head>
 <body>
-    <header>
+    <header class="register-logo">
         <h1><img src="images/main_logo.png"></h1>
         <p>Social Network Service</p>
     </header>
