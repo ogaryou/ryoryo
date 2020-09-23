@@ -1,0 +1,18 @@
+.form-inline2{
+  height: 400px;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background: -moz-linear-gradient(top, #3C4767  60%, #3C4768);
+  background: -webkit-linear-gradient(top, #3C4767  60%, #3C4768);
+  background: linear-gradient(to bottom, #3C4767  60%, rgba(140,29,43,0.4));
+
+  border: 4px solid #0A0A2A;
+  border-radius: 8px;
+}
+.dawn-name{
+  color: #fff;
+}
+.register-link2{
+  margin-top: 30px;
+}
