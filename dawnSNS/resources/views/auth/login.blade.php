@@ -5,13 +5,7 @@
 {!! Form::open() !!}
 
 <p>DAWNSNSへようこそ</p>
-@if($errors->any())
-<ul>
-  @foreach ($errors->all() as $error)
-    <li>{{$error}}</li>
-  @endforeach  
-</ul>
-@endif
+
 {{ Form::label('e-mail') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
 {{ Form::label('password') }}
