@@ -1,6 +1,7 @@
 @charset "utf-8";
-/* html{
-} */
+html{
+   height: 500px;
+}
 body{
     width: 100%;
 } 
@@ -11,11 +12,13 @@ header{
 
 /* main content */
 #row{
+   
     width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
 #container{
+    height: 100%;
     flex: 0 0 80%;
     width: 100%;
     
@@ -103,3 +106,11 @@ header{
     line-height: 40px;
     color: #3C4767;
 }
+input, button, textarea, select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    border: none;
+  }

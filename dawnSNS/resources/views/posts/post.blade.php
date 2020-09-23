@@ -11,14 +11,18 @@
     </div>
     {!! Form::open() !!}
     {{ csrf_field() }}
-    <div class="post-field">
-    
-    {!! Form::textarea('newPost',null, ['class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
+    <div class="post-area">
+      <div class="post-field">
+      
+      {!! Form::textarea('newPost',null, ['class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
+      </div>
+      <div class="post-submit">
+      {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post', 'type' => 'submit']) !!}
+      </div>
+      {!! Form::close() !!}
+
     </div>
-    <div class="post-submit">
-    {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post', 'type' => 'submit']) !!}
-    </div>
-    {!! Form::close() !!}
+
   </div>
 
 
