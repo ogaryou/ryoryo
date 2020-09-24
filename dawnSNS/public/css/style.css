@@ -1,7 +1,6 @@
 @charset "utf-8";
-html{
-   height: 500px;
-}
+/* html{
+} */
 body{
     width: 100%;
 } 
@@ -12,13 +11,11 @@ header{
 
 /* main content */
 #row{
-   
     width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
 #container{
-    height: 100%;
     flex: 0 0 80%;
     width: 100%;
     
@@ -112,5 +109,5 @@ input, button, textarea, select {
     -webkit-box-shadow: none;
     box-shadow: none;
     outline: none;
-    border: none;
+
   }

@@ -9,16 +9,8 @@
 }
 .form-control{
   height: 50px;
-  /* border:0;
-  padding:10px;
-  font-size:0.5em;
-  font-family:Arial, sans-serif;
-  color:#aaa;
-  border:solid 1px #ccc;
-  margin:0 0 20px;
-  -webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px; */
+
+
 font-size:1.2em;
 background: #fff;
 display: block;
@@ -27,7 +19,7 @@ width: 480px;
 transition: 0.8s;
 border-radius: 0;
 resize: none;
-
+border: none;
   width:500px;
 
 }
@@ -47,3 +39,46 @@ resize: none;
   border-radius: 5px;
   cursor: pointer;
 }
+.posts-image{
+  margin-left: 20px;
+  width: 30px;
+}
+.tweet-box{
+  width: 100%;
+}
+.posts-box{
+  display: flex;
+  margin: 60px;
+}
+.tweet-box{
+  margin-left: 30px;
+
+}
+.posts-user{
+  display: flex;
+  color:rgb(136, 131, 131);
+  font-size: 0.8rem;
+
+}
+.date-time{
+  display: flex;
+  justify-content: space-between;
+  color:rgb(136, 131, 131);
+  
+}
+.posts-time{
+  font-size: 0.5rem;
+}
+.posts-content{
+  margin: 30px 0;
+  color:rgb(136, 131, 131);
+  font-size: 1.2rem;
+}
+.label-mark{
+  text-align: right;
+}
+
+
+
+
+
