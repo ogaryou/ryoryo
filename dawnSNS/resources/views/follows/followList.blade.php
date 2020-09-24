@@ -43,9 +43,9 @@
               {!! nl2br($posts->posts) !!}
         </div>
       </div>  
-    </div>
-    @endforeach
   </div>
+    @endforeach
+</div>
 
 
 @endsection
