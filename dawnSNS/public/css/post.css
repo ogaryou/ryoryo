@@ -76,8 +76,40 @@ border: none;
 }
 .label-mark{
   text-align: right;
-}
 
+}
+i.mark-font{
+  color: #65ab31;
+}
+.delete{
+  height: 45px;
+  line-height: 45px;
+  width: 50px;
+}
+i.fa-trash-alt{
+  color: #c81c14;
+}
+i.fa-trash-alt:hover{
+  color: #fff;
+  background-color: #c81c14;
+  border: 5px solid #c81c14;
+  border-radius: 3px;
+}
+.follow-list-title{
+  margin: 30px;
+}
+.follow-list-title h1{
+  font-size: 1.2rem;
+  color: rgb(136, 131, 131);
+}
+.follow-list-image{
+ width: 500px;
+ margin: 0 auto;
+ 
+}
+.follow-list{
+  border-bottom: 5px solid #ddd;
+}
 
 
 

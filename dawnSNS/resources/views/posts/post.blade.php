@@ -57,8 +57,8 @@
         @if ( Auth::id() === $posts->user_id )
           <!-- deleteModalの呼び出し引数に投稿IDを指定する -->
           <div class="label-mark">
-            <label class="label"  data-id="{{ $posts->id }}" ><i class="fas fa-edit update{{$posts->id}}" data-id="{{ $posts->id }}"></i></label>
-            <label class="delete" data-delete="{{ $posts->id }}"><i class="fas fa-trash-alt delete{{$posts->id}}" data-delete="{{ $posts->id}}"></i></label>
+            <label class="label"  data-id="{{ $posts->id }}" ><i class="fas fa-edit fa-2x update{{$posts->id}} mark-font" data-id="{{ $posts->id }}"></i></label>
+            <label class="delete" data-delete="{{ $posts->id }}"><i class="fas fa-trash-alt fa-2x delete{{$posts->id}}" data-delete="{{ $posts->id}}"></i></label>
 
           </div>
         @endif
