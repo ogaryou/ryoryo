@@ -111,6 +111,41 @@ i.fa-trash-alt:hover{
   border-bottom: 5px solid #ddd;
 }
 
+.followuser-profile{
+  margin: 30px 0 20px 90px;
+  display: flex;
 
+}
+.followuser-profile-table{
+  width: 100%;
+}
+.followuser-profile-image{
+  margin-top: 25px;
+}
+.followtable{
+  border-bottom: 5px solid #ddd;
 
+}
 
+.follow-user-table{
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+.follow-user-table h3{
+  color: rgb(136, 131, 131);
+}
+.follow-button{
+  text-align: right;
+  margin-right: 30px;
+}
+.username2{
+  color: rgb(136, 131, 131);
+}
+.folloe-userprofile-name{
+  color: rgb(136, 131, 131);
+}
+#bio{
+  font-size: 0.8rem;
+}
