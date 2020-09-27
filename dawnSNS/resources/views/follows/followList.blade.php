@@ -16,25 +16,36 @@
     </tr>
  @endforeach
   </div>
+</div>  
 
-  <div class="follow-list-posts">
+<div class="posts-table">
     @foreach($posts as $posts)
-    <ul class="post-list">
-      @if($posts->user->images == null)
-      <li><a href="{{ action('PostsController@follows', $posts->user->id)}}"><img src="{{asset('storage/dawn.png')}}" class="image-icon"/></a></li>
-      @else
-      <li><a href="{{ action('PostsController@follows', $posts->user->id)}}"><img src="{{ asset('storage/'.$posts->user->images)}}" class="image-icon"/></a></li>
-      @endif
-   
-    <tr>
-        <td>{{$posts->user->username}}</td>
-        <td>{{$posts->posts}}</td>
-        <td>{{$posts->created_at}}</td>
-        </tr>
-    </ul>
-    @endforeach
+  <div class="posts-box">
+      <div class="posts-image">
+        @if($posts->user->images == null)
+          <a href="{{ action('PostsController@follows', $posts->user->id)}}"><img src="{{asset('storage/dawn.png')}}" class="image-icon"/></a>
+        @else
+          <a href="{{ action('PostsController@follows', $posts->user->id)}}"><img src="{{ asset('storage/'.$posts->user->images)}}" class="image-icon"/></a>
+        @endif
+      </div>
+      <div class="tweet-box">
+        <div class="date-time">
+          <div class="posts-user">
+            {{$posts->user->username}}
+          </div>
+                        
+          <div class="posts-time">
+            {{$posts->created_at}}
+          </div>
+        </div>
+                        
+        <div class="posts-content">
+              {!! nl2br($posts->posts) !!}
+        </div>
+      </div>  
   </div>
-
+    @endforeach
 </div>
+
 
 @endsection

@@ -1,0 +1,74 @@
+.register-logo{
+  text-align: center;
+  margin: 30px;
+}
+.form-h2{
+  padding-top: 10px;
+}
+.form-h2 h2{
+  font-size: 0.8rem;
+  color: #fff;
+} 
+.form-box{
+  height: 100px;
+
+
+ 
+}
+.form-error{
+  text-align: center;
+  color: #DF0101;
+}
+.form-inline{
+  height: 450px;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background: -moz-linear-gradient(top, #3C4767  60%, #3C4768);
+  background: -webkit-linear-gradient(top, #3C4767  60%, #3C4768);
+  background: linear-gradient(to bottom, #3C4767  60%, rgba(140,29,43,0.4));
+
+  border: 4px solid #0A0A2A;
+  border-radius: 8px;
+}
+.form-name{
+  color: #fff;
+  font-size: 8px;
+  height: 15px;
+  padding-top: 20px;
+  width: 200px;
+
+}
+.name{
+  width: 200px;
+  margin-right:40px ;
+}
+.form-contents{
+  height: 40px;
+  line-height: 30px;
+}
+.input{
+  height: 30px;
+  width: 200px;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+}
+.register-submit{
+  color: #fff;
+  background: #2E64FE;
+  border-radius: 5px;
+  height: 30px;
+  width: 80px;
+  line-height: 30px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 2px #5375bd;
+  margin-top: 30px;
+  display: block;
+  margin-left: 180px;
+}
+.register-link{
+  color: #fff;
+  font-size: 0.5rem;
+}

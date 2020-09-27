@@ -1,0 +1,273 @@
+.post-area{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  border-bottom: 5px solid #ddd;
+}
+.post-user{
+  margin: 30px 0 0 20px;
+}
+.form-control{
+  height: 50px;
+
+
+font-size:1.2em;
+background: #fff;
+display: block;
+padding: 12px 15px;
+width: 480px;
+transition: 0.8s;
+border-radius: 0;
+resize: none;
+border: none;
+  width:500px;
+
+}
+.post-submit{
+  margin: 10px;
+}
+.btn-post{
+  height: 40px;
+  width: 50px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  background: #3C4767 ;
+  color: #FFF;
+  border-bottom: solid 5px #3C4767 ;
+  border-right: solid 5px #394c75 ;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.posts-image{
+  margin-left: 20px;
+  width: 30px;
+}
+.tweet-box{
+  width: 100%;
+}
+.posts-box{
+  display: flex;
+  margin: 60px;
+}
+.tweet-box{
+  margin-left: 30px;
+
+}
+.posts-user{
+  display: flex;
+  color:rgb(136, 131, 131);
+  font-size: 0.8rem;
+
+}
+.date-time{
+  display: flex;
+  justify-content: space-between;
+  color:rgb(136, 131, 131);
+  
+}
+.posts-time{
+  font-size: 0.5rem;
+}
+.posts-content{
+  margin: 30px 0;
+  color:rgb(136, 131, 131);
+  font-size: 1.2rem;
+}
+.label-mark{
+  text-align: right;
+
+}
+i.mark-font{
+  color: #65ab31;
+}
+.delete{
+  height: 45px;
+  line-height: 45px;
+  width: 50px;
+}
+i.fa-trash-alt{
+  color: #c81c14;
+}
+i.fa-trash-alt:hover{
+  color: #fff;
+  background-color: #c81c14;
+  border: 5px solid #c81c14;
+  border-radius: 3px;
+}
+.follow-list-title{
+  margin: 30px;
+}
+.follow-list-title h1{
+  font-size: 1.2rem;
+  color: rgb(136, 131, 131);
+}
+.follow-list-image{
+ width: 500px;
+ margin: 0 auto;
+ 
+}
+.follow-list{
+  border-bottom: 5px solid #ddd;
+}
+
+.followuser-profile{
+  margin: 30px 0 20px 90px;
+  display: flex;
+
+}
+.followuser-profile-table{
+  width: 100%;
+}
+.followuser-profile-image{
+  margin-top: 25px;
+}
+.followtable{
+  border-bottom: 5px solid #ddd;
+
+}
+
+.follow-user-table{
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+.follow-user-table h3{
+  color: rgb(136, 131, 131);
+}
+.follow-button{
+  text-align: right;
+  margin-right: 30px;
+}
+.username2{
+  color: rgb(136, 131, 131);
+}
+.folloe-userprofile-name{
+  color: rgb(136, 131, 131);
+}
+#bio{
+  font-size: 0.8rem;
+}
+.form-update{
+  background: #fff;
+  display: block;
+  padding: 12px 15px;
+  width: 480px;
+  transition: 0.8s;
+  border-radius: 0;
+  resize: none;
+  border-radius: 5px;
+}
+.line-right{
+  text-align: right;
+  margin: 10px 20px 0 0;
+}
+.user-profile{
+  margin: 40px;
+  display: flex;
+}
+.update-form ul li{
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+ul div:first-of-type {
+  -webkit-flex-basis: 120px;
+  flex-basis: 120px;
+}
+.users-profile-update{
+  width: 100%;
+  
+}
+.users-update-contents{
+
+  margin: 0 auto;
+} 
+.update-form{
+  margin:10px 10px 20px 10px;
+}
+.users-update-name{
+  color: rgb(136, 131, 131);
+  font-size: 0.8rem;
+}
+.username-update{
+  width: 180px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.mail-update{
+  width: 180px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.password-old{
+  width: 180px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.newpassword{
+  width: 180px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.formBio{
+  width: 180px;
+  height: 40px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 3px;
+  resize: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.browse_btn {
+  background-color: #fff;
+  padding: 6px;
+border-radius: 8px;
+ 
+
+
+  }
+.update-image-label{
+  text-align: center;
+
+  background-color: #ddd;
+  border-radius: 3px;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+  padding: 30px;
+  cursor: pointer;
+}  
+.btn-update{
+ text-align: center;
+}
+.btn.btn-primary.pull-right{
+  border: none;
+  width: 80px;
+  height: 30px;
+  color: #fff;
+  background-color: #65ab31;
+  box-shadow: 3px 2px 6px 0px #65ab36;
+  border-radius: 3px;
+  cursor: pointer;
+}
+@media screen { #filename { display: none; } }
+/* .update-form{
+  
+  display: flex;
+ 
+}
+
+*/
+

@@ -101,9 +101,9 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $request ->validate([
-            'username' => 'bail|required|string|min:4|max:12,unique:users',
-            'mail' => 'bail|required|string|email|min:4',
-            'password' => 'bail|required|string|min:4|max:12|confirmed|alpha_num',
+            'username' => 'bail|required|string|min:4|max:12|unique:users',
+            'mail' => 'bail|required|string|email|min:4|max:12|unique:users',
+            'password' => 'bail|required|string|min:4|max:12|confirmed|alpha_num|unique:users',
             'password_confirmation' => 'required',
             ]);
             $data = $request->input();

@@ -45,7 +45,12 @@ $(function(){
       window.location.href = '/top';
    
     })
-
+    $('#filename').on("change", function() {
+      var file = this.files[0];
+      if(file != null) {
+        $("span").html(file.name);
+      }
+      });
 
 
 

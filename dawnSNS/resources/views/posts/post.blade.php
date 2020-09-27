@@ -11,37 +11,64 @@
     </div>
     {!! Form::open() !!}
     {{ csrf_field() }}
-    <div class="post-field">
-    
-    {!! Form::textarea('newPost',null, ['class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
+    <div class="post-area">
+      <div class="post-field">
+      
+      {!! Form::textarea('newPost',null, ['class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
+      </div>
+      <div class="post-submit">
+      {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post', 'type' => 'submit']) !!}
+      </div>
+      {!! Form::close() !!}
+
     </div>
-    <div class="post-submit">
-    {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post', 'type' => 'submit']) !!}
-    </div>
-    {!! Form::close() !!}
+
   </div>
 
 
-  <div class="text-open">
-    <table class="posts-table">
+<div class="text-open">
+  <div class="posts-table">
     @foreach ($posts as $posts)
-      <tr>
+    <div class="posts-box">
+      <div class="posts-image">
         @if($posts->user->images == null)
-        <td><img src="{{asset('storage/dawn.png')}}" class="image-icon"></td>
+          <img src="{{asset('storage/dawn.png')}}" class="image-icon">
         @elseif($posts->user->images == $username->images)
-        <td><img src="{{asset('storage/'.$username->images)}}" class="image-icon"></td>
+          <img src="{{asset('storage/'.$username->images)}}" class="image-icon">
         @else
-        <td><img src="{{asset('storage/'.$posts->user->images)}}" class="image-icon"></td>
+          <img src="{{asset('storage/'.$posts->user->images)}}" class="image-icon">
         @endif
-        <td>{{$posts->user->username}}</td>
-        <td>{{$posts->posts}}</td>
-        <td>{{$posts->created_at}}</td>
-          @if ( Auth::id() === $posts->user_id )
+      </div>
+      <div class="tweet-box">
+        <div class="date-time">
+          <div class="posts-user">
+            {{$posts->user->username}}
+          </div>
+                        
+          <div class="posts-time">
+            {{$posts->created_at}}
+          </div>
+        </div>
+                        
+        <div class="posts-content">
+              {!! nl2br($posts->posts) !!}
+        </div>
+
+        @if ( Auth::id() === $posts->user_id )
           <!-- deleteModalの呼び出し引数に投稿IDを指定する -->
-          <td><label class="delete" data-delete="{{ $posts->id }}"><i class="fas fa-trash-alt delete{{$posts->id}}" data-delete="{{ $posts->id}}"></i></label></td>
-          <td><label class="label"  data-id="{{ $posts->id }}" ><i class="fas fa-edit update{{$posts->id}}" data-id="{{ $posts->id }}"></i></label></td>
-          
-          @endif
+          <div class="label-mark">
+            <label class="label"  data-id="{{ $posts->id }}" ><i class="fas fa-edit fa-2x update{{$posts->id}} mark-font" data-id="{{ $posts->id }}"></i></label>
+            <label class="delete" data-delete="{{ $posts->id }}"><i class="fas fa-trash-alt fa-2x delete{{$posts->id}}" data-delete="{{ $posts->id}}"></i></label>
+
+          </div>
+        @endif
+      </div>  
+  </div>
+
+       
+
+        
+
           <div class="edit-modal editModal-{{ $posts->id }}" data-id="{{ $posts->id }}">
       <div class="modal__bg js-modal-close"></div>
         <div class="modal-content">
@@ -74,10 +101,10 @@
         </div>
       </div>
 
-      </tr>
+      
     @endforeach
 
-    </table>
+</div>
   </div>
 </div>  
 @endsection

@@ -8,6 +8,8 @@
     <title></title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/login.css">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -20,7 +22,7 @@
     <!--OGPタグ/twitterカード-->
 </head>
 <body>
-    <header>
+    <header class="register-logo">
         <h1><img src="images/main_logo.png"></h1>
         <p>Social Network Service</p>
     </header>
