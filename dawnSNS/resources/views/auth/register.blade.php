@@ -9,10 +9,12 @@
         <ul>
           @foreach ($errors->all() as $error)
             <li>{{$error}}</li>
+            
           @endforeach  
         </ul>
         @endif
-      </div>
+
+</div>
 
   <div class="form-box">
     <div class="form-inline">
@@ -37,7 +39,7 @@
         {{ Form::label('パスワード',null,['class' =>'name']) }}
       </div>
       <div class="form-contents">
-        {{ Form::text('password',null,['class' => 'input']) }}
+        {{ Form::password('password',['class' => 'input']) }}
       </div>
 
 
@@ -45,7 +47,7 @@
         {{ Form::label('パスワード確認',null,['class' =>'name']) }}
       </div>
       <div class="form-contents">
-        {{ Form::text('password_confirmation',null,['class' => 'input']) }}
+        {{ Form::password('password_confirmation',['class' => 'input']) }}
     
 
 
