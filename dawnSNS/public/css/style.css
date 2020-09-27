@@ -6,7 +6,7 @@ body{
 } 
 header{
     background:#3C4767;
-    height: 80px;
+    height: 90px;
 }
 
 /* main content */
@@ -27,31 +27,43 @@ header{
 }
 #head{
     display: flex;
+   
 }
 #top-header{
     margin: 0 0 0 auto;
-    width: 200px;
+    
+    width: 300px;
+
 }
 .name{
     color: #fff;
     cursor: pointer;
-    margin-top: 55px;
+    margin: 55px 0 0 auto;
+    
 
 }
 #top-link-header{
     width: 200px;
     height:80px;
     display: flex;
+    margin: 0 0 0 auto;
+  
 }
 .main-image{
     width: 25px;
     height: 25px;
-    clip-path: circle(12.5px at 12.5px 12.5px);
-    margin: 50px 0  0 30px;
+    border-radius: 50%;
+    margin:50px 5px 0 auto;
+    /* margin: 50px 0 0 50px; */
+    /* padding: 30px; */
+    /* clip-path: circle(12.5px at 12.5px 12.5px); */
+    /* 
+    margin: 50px 30px; */
     /* position: absolute;
     top: 30px; */
    
 }
+
 .name::after{
     content: '';
     width: 8px;
@@ -60,8 +72,7 @@ header{
     border-bottom: solid 2px #fff;
     border-left: solid 2px #fff;
     position: absolute;
-    top: 60px;
-    right: 80px;
+    
     margin-top: -4px;
     transform: rotate(-45deg);
 }
@@ -75,8 +86,7 @@ header{
     position: absolute;
     -webkit-transform: rotate(-45deg);
     transform: rotate(135deg);
-    top: 60px;
-    right: 80px;
+
     margin-top: -4px;
 }
 .drop-menu{

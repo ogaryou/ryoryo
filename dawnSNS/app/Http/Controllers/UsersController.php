@@ -29,13 +29,14 @@ class UsersController extends Controller
         $request->validate ( [
             'username' => ['min:4','max:12'],
             'mail' => ['min:4','max:12','unique:users,mail,'. $user ->mail .',mail'],
-            'newpassword' => ['min:4','max:12','alpha_dash','different:password'],
-            'bio' =>['string','max:200']
+            'newpassword' => ['nullable','min:4','max:12','alpha_dash','different:password'],
+            'bio' =>['nullable','string','max:200']
         ]);
         
         $id =$request->input('id');
         $up_username = $request->input('username');
         $up_mail =$request->input('mail');
+        
         $up_newpassword=bcrypt($request['newpassword']);
         $up_images=$request->file('images');
         $up_Bio=$request->input('bio');

@@ -149,3 +149,125 @@ i.fa-trash-alt:hover{
 #bio{
   font-size: 0.8rem;
 }
+.form-update{
+  background: #fff;
+  display: block;
+  padding: 12px 15px;
+  width: 480px;
+  transition: 0.8s;
+  border-radius: 0;
+  resize: none;
+  border-radius: 5px;
+}
+.line-right{
+  text-align: right;
+  margin: 10px 20px 0 0;
+}
+.user-profile{
+  margin: 40px;
+  display: flex;
+}
+.update-form ul li{
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+ul div:first-of-type {
+  -webkit-flex-basis: 120px;
+  flex-basis: 120px;
+}
+.users-profile-update{
+  width: 100%;
+  
+}
+.users-update-contents{
+
+  margin: 0 auto;
+} 
+.update-form{
+  margin:10px 10px 20px 10px;
+}
+.users-update-name{
+  color: rgb(136, 131, 131);
+  font-size: 0.8rem;
+}
+.username-update{
+  width: 180px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.mail-update{
+  width: 180px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.password-old{
+  width: 180px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.newpassword{
+  width: 180px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.formBio{
+  width: 180px;
+  height: 40px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 3px;
+  resize: none;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+}
+.browse_btn {
+  background-color: #fff;
+  padding: 6px;
+border-radius: 8px;
+ 
+
+
+  }
+.update-image-label{
+  text-align: center;
+
+  background-color: #ddd;
+  border-radius: 3px;
+  box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+  padding: 30px;
+  cursor: pointer;
+}  
+.btn-update{
+ text-align: center;
+}
+.btn.btn-primary.pull-right{
+  border: none;
+  width: 80px;
+  height: 30px;
+  color: #fff;
+  background-color: #65ab31;
+  box-shadow: 3px 2px 6px 0px #65ab36;
+  border-radius: 3px;
+  cursor: pointer;
+}
+@media screen { #filename { display: none; } }
+/* .update-form{
+  
+  display: flex;
+ 
+}
+
+*/
+
