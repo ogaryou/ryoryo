@@ -14,7 +14,7 @@
     <div class="post-area">
       <div class="post-field">
       
-      {!! Form::textarea('newPost',null, ['class' => 'form-control', 'placeholder' => '何をつぶやこうか？']) !!}
+      {!! Form::textarea('newPost',null, ['class' => 'form-control', 'placeholder' => '何をつぶやこうか？','maxlength' => '200']) !!}
       </div>
       <div class="post-submit">
       {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post', 'type' => 'submit']) !!}
@@ -75,7 +75,7 @@
             {!! Form::open(['method' => 'PATCH','url' => ['top', $posts->id]]) !!}
             
             {!! Form::hidden('id', $posts->id) !!}
-            {!! Form::textarea('updatePost',$posts->posts, ['class' => 'form-update']) !!}
+            {!! Form::textarea('updatePost',$posts->posts, ['class' => 'form-update','maxlength' => '200']) !!}
                 <div class="line-right"> 
                     {!! Form::button('<i class="fas fa-paper-plane"></i>', ['class' => 'btn-post','type' => 'submit']) !!}  
                 </div>

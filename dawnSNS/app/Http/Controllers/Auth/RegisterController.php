@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
@@ -100,11 +102,12 @@ class RegisterController extends Controller
     //  }
     public function register(Request $request){
         if($request->isMethod('post')){
+            
             $request ->validate([
-            'username' => 'bail|required|string|min:4|max:12|unique:users',
-            'mail' => 'bail|required|string|email|min:4|max:12|unique:users',
-            'password' => 'bail|required|string|min:4|max:12|confirmed|alpha_num|unique:users',
-            'password_confirmation' => 'required',
+            'username' => ['bail','required','string','min:4','max:12','unique:users'],
+            'mail' => ['bail','required','string','email','min:4','max:12','unique:users'],
+            'password' => ['bail','required','min:4','max:12','confirmed','regex:/^[0-9a-zA-Z]*$/','unique:users'],
+            'password_confirmation' => ['required','min:4','max:12','regex:/^[0-9a-zA-Z]*$/'],
             ]);
             $data = $request->input();
             $this -> create($data);

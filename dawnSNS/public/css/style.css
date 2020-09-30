@@ -72,7 +72,7 @@ header{
     border-bottom: solid 2px #fff;
     border-left: solid 2px #fff;
     position: absolute;
-    
+    top: 62px;
     margin-top: -4px;
     transform: rotate(-45deg);
 }
@@ -86,7 +86,7 @@ header{
     position: absolute;
     -webkit-transform: rotate(-45deg);
     transform: rotate(135deg);
-
+    top: 60px;
     margin-top: -4px;
 }
 .drop-menu{

@@ -56,7 +56,7 @@
             {{ Form::label('パスワード') }}
             </div>
             <div class="users-update-contents">
-            <input id="password" type="password" class='password-old' name="password"  value="{{$username->password}}"readonly>
+            <input id="password" type="password" class='password-old' name="password"  value="{{old('password',isset($username->password) ? $username->password : '')}}"readonly>
             </div>
           </li>
         </ul>
@@ -69,6 +69,7 @@
             </div>
             <div class="users-update-contents">
               {{ Form::password('newpassword',['class' =>'newpassword'])}}
+             
             </div>
           </li>
         </ul>
