@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Follower;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,21 +26,55 @@ class UsersController extends Controller
     }
     public function update(Request $request){
         $user = User::find(auth()->id());
+
         $request->validate ( [
             'username' => ['min:4','max:12'],
             'mail' => ['min:4','max:12','unique:users,mail,'. $user ->mail .',mail'],
-            'newpassword' => ['nullable','min:4','max:12','alpha_dash','different:password'],
+            'newpassword' => ['sometimes','nullable','min:4','max:12','unique:users,password,'. $user ->password.',password','regex:/^[0-9a-zA-Z]*$/','different:password'],
             'bio' =>['nullable','string','max:200']
         ]);
         
+        if(Hash::check($request->input('newpassword'), $user->password)){
+            return back();
+
+        }elseif(empty($request->input('newpassword'))){
+                $user->password;
+                $user->save();
+        }else{
+            $request->user()->fill([
+                'password' => Hash::make($request->input('newpassword'))
+            ])->save();
+        }
+
+        
         $id =$request->input('id');
+        
         $up_username = $request->input('username');
         $up_mail =$request->input('mail');
         
-        $up_newpassword=bcrypt($request['newpassword']);
+    
+
+
         $up_images=$request->file('images');
         $up_Bio=$request->input('bio');
-        \DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'password'=>$up_newpassword,'bio'=>$up_Bio,'images'=>$up_images]);
+        // if (!empty($request->input('newpassword'))) {
+        //     $user->password = Hash::make($request->password);
+        //     $user->save();
+        // }
+    
+
+
+
+            \DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'bio'=>$up_Bio,'images'=>$up_images]);
+            
+ 
+            // \DB::table('users')->where('id',$id)->update(['username'=>$up_username,'mail'=>$up_mail,'password'=>$up_newpassword,'bio'=>$up_Bio,'images'=>$up_images]);
+        
+  
+    
+        
+  
+       
         $this->validate($request, [
             'images' =>[
                 'file',

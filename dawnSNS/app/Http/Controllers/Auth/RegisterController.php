@@ -106,8 +106,8 @@ class RegisterController extends Controller
             $request ->validate([
             'username' => ['bail','required','string','min:4','max:12','unique:users'],
             'mail' => ['bail','required','string','email','min:4','max:12','unique:users'],
-            'password' => ['bail','required','min:4','max:12','confirmed','regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{4,12}+\z/i','unique:users'],
-            'password_confirmation' => ['required'],
+            'password' => ['bail','required','min:4','max:12','confirmed','regex:/^[0-9a-zA-Z]*$/','unique:users'],
+            'password_confirmation' => ['required','min:4','max:12','regex:/^[0-9a-zA-Z]*$/'],
             ]);
             $data = $request->input();
             $this -> create($data);
